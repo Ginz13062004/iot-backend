@@ -18,16 +18,20 @@ import org.springframework.messaging.MessageHandler;
 public class MqttConfig {
 
     // 1. Thay thông tin Broker của bạn ở đây
-    @Bean
+   @Bean
     public MqttPahoClientFactory mqttClientFactory() {
         DefaultMqttPahoClientFactory factory = new DefaultMqttPahoClientFactory();
         MqttConnectOptions options = new MqttConnectOptions();
         
-        // Nếu chạy local thì để tcp://localhost:1883
-        // Nếu chạy HiveMQ thì đổi link vào đây
         options.setServerURIs(new String[] { "tcp://broker.emqx.io:1883" }); 
-        options.setUserName("admin"); // Nếu không có pass thì xóa dòng này
-        options.setPassword("123456".toCharArray()); // Nếu không có pass thì xóa dòng này
+        
+        // XÓA HOẶC COMMENT 2 DÒNG USER/PASS DƯỚI ĐÂY
+        // options.setUserName("admin"); 
+        // options.setPassword("123456".toCharArray()); 
+        
+        // Thêm dòng này để tự động kết nối lại nếu mạng yếu
+        options.setAutomaticReconnect(true);
+        options.setCleanSession(true);
         
         factory.setConnectionOptions(options);
         return factory;
