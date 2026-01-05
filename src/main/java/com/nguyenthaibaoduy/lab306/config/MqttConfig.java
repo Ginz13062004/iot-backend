@@ -25,7 +25,7 @@ public class MqttConfig {
         
         // Nếu chạy local thì để tcp://localhost:1883
         // Nếu chạy HiveMQ thì đổi link vào đây
-        options.setServerURIs(new String[] { "tcp://localhost:1883" }); 
+        options.setServerURIs(new String[] { "tcp://broker.emqx.io:1883" }); 
         options.setUserName("admin"); // Nếu không có pass thì xóa dòng này
         options.setPassword("123456".toCharArray()); // Nếu không có pass thì xóa dòng này
         
