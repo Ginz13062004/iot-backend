@@ -49,10 +49,10 @@ public class MqttService {
 
             // 3. Lưu vào Database
             repository.save(data);
-            System.out.println("✅ Đã lưu data thiết bị: " + deviceId);
+            System.out.println("✅ Da luu data thiet bi: " + deviceId);
 
         } catch (Exception e) {
-            System.err.println("❌ Lỗi xử lý MQTT: " + e.getMessage());
+            System.err.println("❌ Loi xu ly  MQTT: " + e.getMessage());
             // e.printStackTrace(); // Bật lên nếu cần debug kỹ
         }
     }

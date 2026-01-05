@@ -67,7 +67,7 @@ public class DeviceController {
                 try {
                     id = Long.parseLong(deviceIdStr.split("_")[1]);
                 } catch (Exception e) {
-                    System.out.println("❌ Không parse được ID từ: " + deviceIdStr);
+                    System.out.println("❌ Khong parse đuoc ID tu: " + deviceIdStr);
                 }
             }
 
